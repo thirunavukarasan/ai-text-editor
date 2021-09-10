@@ -1,0 +1,48 @@
+.badge {
+  font-size: 85%;
+}
+
+.border-light {
+  border-color: #cfd7de !important;
+}
+
+.card {
+  border-radius: 0px;
+}
+
+.card-title {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h3 {
+  color: #23acd1;
+  font-weight: 600;
+}
+
+.power-word-p,
+.readabilty-word-p {
+  font-weight: 700;
+  color: #9e9e9e !important;
+  caret-color: #9e9e9e !important;
+}
+
+.word-count-p {
+  color: #23acd1;
+  font-weight: 600;
+}
+
+.head-icon {
+  display: flex;
+  justify-content: space-between;
+}
