@@ -4,6 +4,7 @@ import { EditorState,convertToRaw} from "draft-js";
 import { editorConext } from "../../context/EditorContext";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import {powerWords} from "../../asset/PowerWords";
+import ApiService from "../../services/apiService";
 
 class EditorComp extends Component {
   static contextType = editorConext;
@@ -25,9 +26,9 @@ class EditorComp extends Component {
     })
   }
 
-  onEditorStateChange() { 
+  async onEditorStateChange() { 
 
-    this.setState({predictedWords:[]});
+    this.setState({predictedWords:[],powerWordCount:'N/A'});
     let count = 0;
     let sentenceCount = 0 ;
     let syllabusCount = 0;
@@ -35,6 +36,9 @@ class EditorComp extends Component {
     let blocksData = convertToRaw(this.state.editorState.getCurrentContent()).blocks;
     let text = blocksData.map(block => (block.text)).join('\n').trim().replaceAll("\n"," ");
     let splitWords = text.replace(/[ ]{2,}/gi," ").split(".");
+    
+    let keyWordsResp = await ApiService.getKeyWords(this.context.inputKey);
+    let mappingKeyColor = await ApiService.keyWordsToUse(keyWordsResp,text);
 
     splitWords.forEach(string => {
         if(string) {
@@ -63,12 +67,14 @@ class EditorComp extends Component {
     });
 
     //formula for calculating readabilty score
-    let readabilityScore = (206.835-(1.015 * (count/sentenceCount))-(84.6 *(syllabusCount/count)));
+    const readabilityScore = (206.835-(1.015 * (count/sentenceCount))-(84.6 *(syllabusCount/count)));
 
     //updating state 
     this.context.setreadabilty(readabilityScore);
     this.context.seteditorWords(count);
     this.context.setpowerWords(this.state.powerWordCount);
+    this.context.seteditorText(text);
+    this.context.setKeyWordsTouse(mappingKeyColor);
   }
 
   render() {
@@ -78,7 +84,7 @@ class EditorComp extends Component {
             initialEditorState={this.state.editorState}
             toolbarClassName="toolbarClassName"
             wrapperClassName="wrapperClassName"
-            editorClassName="editorClassName"
+            editorClassName="section-editor"
             onEditorStateChange={(e) => {
               this.setState({editorState: e});
               setTimeout(() => this.onEditorStateChange(), 100);

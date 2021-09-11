@@ -9,9 +9,15 @@ class editorConextProvider extends Component {
       editorWords: 0,
       readabilty: "N/A",
       powerWords: "N/A",
+      KeyWordsTouse: [],
+      editorText: "",
+      inputKey: "",
       seteditorWords: this.seteditorWords,
       setreadabilty: this.setreadabilty,
       setpowerWords: this.setpowerWords,
+      setKeyWordsTouse: this.setKeyWordsTouse,
+      seteditorText: this.seteditorText,
+      setinputKey: this.setinputKey,
     };
   }
 
@@ -48,6 +54,17 @@ class editorConextProvider extends Component {
     this.setState({ powerWords: wordsCount });
   };
 
+  setKeyWordsTouse = (keywordSug) => {
+    this.setState({ KeyWordsTouse: keywordSug });
+  };
+
+  seteditorText = (text) => {
+    this.setState({ editorText: text });
+  };
+
+  setinputKey = (input) => {
+    this.setState({ inputKey: input });
+  };
   render() {
     return (
       <editorConext.Provider value={this.state}>

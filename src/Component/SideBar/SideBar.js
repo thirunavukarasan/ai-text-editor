@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { editorConext } from "../../context/EditorContext";
+import KeyWordSug from "../KeyWordSug/KeyWordSug";
 import "./SideBar.css";
 
 class SideBar extends Component {
@@ -8,7 +9,7 @@ class SideBar extends Component {
     return (
       <div id="sideBar">
         <div>
-          <h3 className="text-left">Performance</h3>
+          <h4 className="text-left">Performance</h4>
           <div className="card">
             <div className="card-body p-2">
               <div className="head-icon">
@@ -59,7 +60,7 @@ class SideBar extends Component {
         </div>
 
         <div className="mt-4">
-          <h3 className="text-left">Adds on</h3>
+          <h4 className="text-left">Adds on</h4>
           <div className="card">
             <div className="card-body">
               <a href="/" className="btn btn-primary">
@@ -69,20 +70,7 @@ class SideBar extends Component {
           </div>
         </div>
 
-        <div className="my-4">
-          <h3 className="text-left">Key Words To Use</h3>
-          <div className="">
-            {/* <div className="">
-              <span className="badge badge-pill badge-success mx-1">Primary</span>
-              <span className="badge badge-pill badge-success mx-1">Secondary</span>
-              <span className="badge badge-pill badge-success mx-1">Success</span>
-              <span className="badge badge-pill badge-danger mx-1">Danger</span>
-              <span className="badge badge-pill badge-danger mx-1">Warning</span>
-              <span className="badge badge-pill badge-danger mx-1">Info</span>
-              <span className="badge badge-pill badge-danger mx-1">Dark</span>
-            </div> */}
-          </div>
-        </div>
+        <KeyWordSug />
       </div>
     );
   }

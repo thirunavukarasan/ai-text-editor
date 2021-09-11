@@ -8,12 +8,12 @@ function App() {
     <EditorConext>
       <div className="App">
         <div className="container text-center">
-          <h1 className="my-5">Long Shot AI Text Editor</h1>
-          <div className="row border border-light">
-            <div className="col-9 p-0">
+          <h1 className="my-2">Long Shot AI Text Editor</h1>
+          <div className="row border border-light mb-5 editor-con">
+            <div className="col-9 p-0" >
               <EditorComp />
             </div>
-            <div className="col-3 bg-light">
+            <div className="col-3 bg-light" id="section-sidebar">
               <SideBar />
             </div>
           </div>

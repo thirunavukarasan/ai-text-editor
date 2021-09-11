@@ -1,5 +1,6 @@
 .badge {
-  font-size: 85%;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .border-light {
@@ -25,7 +26,7 @@ h6 {
 }
 
 h1,
-h3 {
+h4 {
   color: #23acd1;
   font-weight: 600;
 }
@@ -45,4 +46,35 @@ h3 {
 .head-icon {
   display: flex;
   justify-content: space-between;
+}
+
+#section-sidebar {
+  max-height: 100vh;
+  overflow-y: auto;
+  height: 600px;
+}
+
+.editor-con {
+  height: 600px;
+}
+
+#section-sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+#section-sidebar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#section-sidebar::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+}
+
+#section-sidebar::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+}
+
+#section-sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
 }
